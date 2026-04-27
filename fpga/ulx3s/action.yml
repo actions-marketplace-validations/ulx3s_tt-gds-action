@@ -49,7 +49,9 @@ runs:
     - name: install oss-cad-suite
       uses: YosysHQ/setup-oss-cad-suite@v4
       with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         python-override: true
+        version: '2026-04-26'
 
     - name: Create the bitstream
       shell: bash
