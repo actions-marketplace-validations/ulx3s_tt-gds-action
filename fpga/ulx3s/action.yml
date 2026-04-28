@@ -1,5 +1,5 @@
-name: 'Tiny Tapeout FPGA bitstream (gojimmypi ulx3s)'
-description: 'This action will generate an ice40up5k FPGA bitstream from your Tiny Tapeout project'
+name: 'Tiny Tapeout FPGA bitstream (ULX3S ECP5)'
+description: 'This action will generate a ULX3S ECP5 FPGA bitstream from your Tiny Tapeout project'
 branding:
   color: purple
   icon: check
