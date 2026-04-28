@@ -34,6 +34,11 @@ inputs:
     default: 'fpga_ulx3s_ecp5'
     required: false
 
+  uart-enabled:
+    description: 'Enable UART pin mapping in the ULX3S wrapper'
+    default: 'true'
+    required: false
+
 runs:
   using: 'composite'
   steps:
@@ -75,11 +80,18 @@ runs:
       run: |
         echo "Building ULX3S ECP5 (${{ inputs.ecp5-device }})"
 
+        DEFINE_ARGS=""
+
+        if [ "${{ inputs.uart-enabled }}" = "true" ]; then
+            DEFINE_ARGS="--define UART_ENABLED"
+        fi
+
         python tt/tt_fpga.py harden \
             --name tt_um_fpga_ecp5_${{ inputs.ecp5-device }} \
             --fpga-target ulx3s-ecp5 \
             --ecp5-device ${{ inputs.ecp5-device }} \
-            --lpf ${{ inputs.lpf }}
+            --lpf ${{ inputs.lpf }} \
+            $DEFINE_ARGS
 
     - name: Upload ULX3S bitstream
       if: always()
@@ -92,3 +104,4 @@ runs:
           src/*
           info.yaml
           LICENSE
+          ${{ inputs.lpf }}
