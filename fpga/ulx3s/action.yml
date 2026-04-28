@@ -66,7 +66,7 @@ runs:
                --name tt_um_fpga_ecp5_85k \
                --fpga-target ulx3s-ecp5   \
                --ecp5-device 85k          \
-               --lpf ulx3s_v20.lpf
+               --lpf tt/fpga/ulx3s/ulx3s_v20.lpf
 
     - name: Upload the bitstream
       if: always()
