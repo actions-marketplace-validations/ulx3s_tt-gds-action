@@ -55,7 +55,14 @@ runs:
     - name: Create the bitstream
       shell: bash
       run: |
+        echo "Create the FPGA bitstream files"
+
+        echo "Create the default"
         python tt/tt_fpga.py harden
+
+        echo "Create additional ULX3S ECP5"
+        python tt/tt_fpga.py harden --fpga-target ulx3s-ecp5 --ecp5-device 85k --lpf ulx3s_v20.lpf
+
 
     - name: Upload the bitstream
       if: always()
