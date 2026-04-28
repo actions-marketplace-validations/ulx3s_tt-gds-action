@@ -9,12 +9,11 @@ inputs:
     description: 'Override tt-support-tools repository'
     default: 'TinyTapeout/tt-support-tools'
     required: false
-    type: string
+
   tools-ref:
     description: 'Override tt-support-tools branch/tag/commit'
     default: 'main'
     required: false
-    type: string
 
 runs:
   using: 'composite'
