@@ -52,17 +52,21 @@ runs:
         python-override: true
         version: '2026-04-26'
 
-    - name: Create the bitstream
+    - name: Create the bitstreams
       shell: bash
       run: |
         echo "Create the FPGA bitstream files"
 
-        echo "Create the default"
-        python tt/tt_fpga.py harden
+        echo "Create iCE40 UP5K bitstream (default)"
+        python tt/tt_fpga.py harden \
+              --name tt_um_fpga_ice40
 
-        echo "Create additional ULX3S ECP5"
-        python tt/tt_fpga.py harden --fpga-target ulx3s-ecp5 --ecp5-device 85k --lpf ulx3s_v20.lpf
-
+        echo "Create ULX3S ECP5 bitstream"
+        python tt/tt_fpga.py harden       \
+               --name tt_um_fpga_ecp5_85k \
+               --fpga-target ulx3s-ecp5   \
+               --ecp5-device 85k          \
+               --lpf ulx3s_v20.lpf
 
     - name: Upload the bitstream
       if: always()
