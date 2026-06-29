@@ -8,13 +8,14 @@ branding:
 inputs:
   tools-repo:
     description: 'Override tt-support-tools repository with ulx3s'
-    default: 'ulx3s/tt-support-tools@experimental'
+    # Default is expected to be <owner>/<repo>
+    default: 'ulx3s/tt-support-tools'
     required: false
 
   tools-ref:
     description: 'Override tt-support-tools branch/tag/commit'
   # default: 'main'
-    default: 'ulx3s' # TODO remove and uncomment ^
+    default: 'experimental' # TODO remove and uncomment above ^
     required: false
 
   ecp5-device:
