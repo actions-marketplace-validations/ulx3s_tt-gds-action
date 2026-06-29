@@ -40,7 +40,7 @@ runs:
         PDK_ROOT=/home/runner/pdk
 
         if [ "$PDK" == "gf180mcuD" ]; then
-          PDK_VERSION="ff08c23db8359afce3f134c454e7930586d0641c"
+          PDK_VERSION="e8daeda73ca8f5814dbc0b11d1d05802251a3750"
         elif [ "$PDK" == "ihp-sg13g2" ]; then
           PDK_VERSION="c4b8b4e5e7a05f375cca3815d51b3a37721fbf5c"
         elif [ "$PDK" == "sky130A" ]; then
@@ -88,7 +88,7 @@ runs:
       run: nix-shell --run "python precheck.py --gds ${{ github.workspace }}/tt_submission/*.gds* --tech ${{ env.PDK }}"
 
     - name: Test Summary
-      uses: test-summary/action@v2.4
+      uses: test-summary/action@v2.6
       with:
         paths: 'tt/precheck/reports/results.xml'
       if: always()
