@@ -82,6 +82,9 @@ runs:
         # 3D Viewer
         [Open 3D viewer](https://gds-viewer.tinytapeout.com/?model=$PAGE_URL/tinytapeout.oas&pdk=$PDK)
 
+        # Tiny Tapeout Explorer
+        [Open in Tiny Tapeout Explorer](https://gds-explorer.tinytapeout.com/viewer?file=$PAGE_URL/tinytapeout.oas&pdk=$PDK)
+
         # 2D Preview
         ![png]($PAGE_URL/gds_render.png)
         EOF
