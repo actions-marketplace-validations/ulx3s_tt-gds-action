@@ -1,20 +1,32 @@
-name: 'Tiny Tapeout FPGA bitstream'
-description: 'This action will generate an ice40up5k FPGA bitstream from your Tiny Tapeout project'
+name: 'Tiny Tapeout FPGA bitstream (iCE40 UP5K)'
+description: 'Generate an iCE40 UP5K FPGA bitstream from your Tiny Tapeout project'
+
 branding:
   color: purple
   icon: check
 
 inputs:
   tools-repo:
-    description: 'Override tt-support-tools repository'
-    default: 'TinyTapeout/tt-support-tools'
+    description: 'Override tt-support-tools repository with iCE40 UP5K support'
+    # Default is expected to be <owner>/<repo>
+    default: 'ulx3s/tt-support-tools'
     required: false
-    type: string
+
   tools-ref:
     description: 'Override tt-support-tools branch/tag/commit'
-    default: 'main'
+  # default: 'main'
+    default: 'experimental' # TODO remove and uncomment above ^
     required: false
-    type: string
+
+  breakout-target:
+    description: 'iCE40 UP5K breakout target (classic, fabricfox)'
+    default: 'fabricfox'
+    required: false
+
+  artifact-name:
+    description: 'Artifact base name'
+    default: 'fpga_ice40_up5k'
+    required: false
 
 runs:
   using: 'composite'
@@ -46,21 +58,26 @@ runs:
       run: |
         python tt/tt_tool.py --create-user-config $FLOW_ARG
 
-    - name: install oss-cad-suite
-      uses: YosysHQ/setup-oss-cad-suite@v3
+    - name: Install oss-cad-suite
+      uses: YosysHQ/setup-oss-cad-suite@v4
       with:
         python-override: true
+        version: '2026-04-26'
 
-    - name: Create the bitstream
+    - name: Create iCE40 UP5K bitstream
       shell: bash
       run: |
-        python tt/tt_fpga.py harden
+        echo "Building iCE40 UP5K (${{ inputs.breakout-target }})"
 
-    - name: Upload the bitstream
+        python tt/tt_fpga.py harden \
+            --name tt_um_fpga_ice40up5k \
+            --breakout-target ${{ inputs.breakout-target }}
+
+    - name: Upload iCE40 UP5K bitstream
       if: always()
       uses: actions/upload-artifact@v7
       with:
-        name: fpga_bitstream
+        name: ${{ inputs.artifact-name }}
         path: |
           build/*
           docs/*
