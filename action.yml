@@ -1,4 +1,6 @@
-name: 'Tiny Tapeout GDS Action'
+# Matadata must be globally unique to publish to marketplace.
+# See https://docs.github.com/en/actions/how-tos/create-and-publish-actions/publish-in-github-marketplace
+name: 'Tiny Tapeout GDS Action for the ULX3S and ULX4M ECP5 FPGA'
 description: 'This action builds a GDS file from your Tiny Tapeout project'
 branding:
   color: purple
