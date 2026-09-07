@@ -1,6 +1,8 @@
-# ULX3S Constrain Files
+# ULX3S Constraint Files
 
-Copied from [emard/ulx3s/doc/constraints](https://github.com/emard/ulx3s/tree/master/doc/constraints)
+Copied from [emard/ulx3s/doc/constraints](https://github.com/emard/ulx3s/tree/master/doc/constraints) 
+
+located in `tt-support-tools` (https://github.com/ulx3s/tt-support-tools/tree/experimental/fpga/ulx3s)
 
 Note that minor changes have been made in [ulx3s_v20.lpf](./ulx3s_v20.lpf) vs [the original](./ulx3s_v20_original.lpf)
 
