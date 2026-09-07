@@ -72,7 +72,7 @@ runs:
         pdk_root: ${{ env.PDK_ROOT }}
 
     - name: Install Nix
-      uses: rikhuijzer/cache-install@v1.1.4
+      uses: rikhuijzer/cache-install@c46c673b14b0780c6749d7a45f26ebc07c8c7388 # master + PR #27 (actions/cache v5, Node.js 24); switch back to a tag once a release includes it
       with:
         key: nix-${{ hashFiles('precheck/default.nix') }}
         nix_file: 'tt/precheck/default.nix'
