@@ -82,7 +82,7 @@ Additional action parameters are specified in the `with:`:
           uart-enabled: true
 ```
 
-The `with: lpf:` constraint files are provided in [./fpga/ulx3s](https://github.com/ulx3s/tt-gds-action/tree/experimental/fpga/ulx3s).
+The `with: lpf:` constraint files are provided by [`ulx3s/tt-support-tools`](https://github.com/ulx3s/tt-support-tools/tree/experimental/fpga/ulx3s) and are checked out under `tt/fpga/ulx3s` by the action.
 
 To effectively use with the TT toolchain, the project file should contain a module named `tt_[user]_[repo]` in the `src/project.v`. 
 For [example this](https://github.com/gojimmypi/ttgf-UART-FSM-TRNG-Lab/blob/a59efdc8a51dcd5f2c868acfd4993b5c532e6dc0/src/project.v#L176) `tt_um_gojimmypi_ttsky_UART_FSM_TRNG_Lab`
