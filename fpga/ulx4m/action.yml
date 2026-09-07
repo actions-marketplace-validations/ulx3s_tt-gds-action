@@ -7,9 +7,9 @@ branding:
 
 inputs:
   tools-repo:
-    description: 'Override tt-support-tools repository with ulx4m'
+    description: 'Override tt-support-tools repository'
     # Default is expected to be <owner>/<repo>
-    default: 'ulx4m/tt-support-tools'
+    default: 'ulx3s/tt-support-tools'
     required: false
 
   tools-ref:
