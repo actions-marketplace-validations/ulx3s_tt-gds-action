@@ -58,7 +58,7 @@ runs:
       run: |
         python tt/tt_tool.py --create-user-config $FLOW_ARG
 
-    - name: Install oss-cad-suite
+    - name: install oss-cad-suite
       uses: YosysHQ/setup-oss-cad-suite@v4
       with:
         python-override: true

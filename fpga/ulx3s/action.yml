@@ -25,6 +25,9 @@ inputs:
 
   lpf:
     description: 'LPF constraints file path'
+    # Constraint files are in the tt/fpga/ulx3s directory of the tt-support-tools repo
+    # See https://github.com/ulx3s/tt-support-tools/tree/experimental/fpga/ulx3s
+    # Set to local path: tt, below in Checkout tt-support-tools repo
     default: 'tt/fpga/ulx3s/ulx3s_v20.lpf'
     required: false
 

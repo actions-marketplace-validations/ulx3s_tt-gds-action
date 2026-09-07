@@ -29,7 +29,7 @@ runs:
 
     # install oss fpga tools
     - name: install oss-cad-suite
-      uses: YosysHQ/setup-oss-cad-suite@v2
+      uses: YosysHQ/setup-oss-cad-suite@v4
       with:
           python-override: true
 
