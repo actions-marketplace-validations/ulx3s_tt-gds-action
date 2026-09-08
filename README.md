@@ -84,6 +84,25 @@ Additional action parameters are specified in the `with:`:
 
 The `with: lpf:` constraint files are provided by [`ulx3s/tt-support-tools`](https://github.com/ulx3s/tt-support-tools/tree/experimental/fpga/ulx3s) and are checked out under `tt/fpga/ulx3s` by the action.
 
+## Usage with GitHub Marketplace Syntax
+
+As of v0.0.3, the action can be used with the [GitHub Marketplace](https://github.com/marketplace/actions/tiny-tapeout-gds-action-for-the-ulx3s-and-ulx4m-ecp5-fpga) syntax.
+This is when pressing the "Use this action" button on the Marketplace page. The syntax is equivalent to the above, but with a different `uses:` path:
+
+```yaml
+      - name: Tiny Tapeout GDS Action for the ULX3S and ULX4M ECP5 FPGA
+        # see https://github.com/marketplace/actions/tiny-tapeout-gds-action-for-the-ulx3s-and-ulx4m-ecp5-fpga
+        uses: ulx3s/tt-gds-action@v0.0.3
+```
+
+[PR#5](https://github.com/ulx3s/tt-gds-action/pull/5) added a root level dispatch to appease marketplace default syntax.
+
+The `experimental` name is still the preferred name for ULX3S actions until fully tested. The `v0.0.3` tag is a stable release created for the Marketplace.
+
+Tested [here](https://github.com/gojimmypi/ttgf-UART-FSM-TRNG-Lab/actions/runs/34155592940/job/101846628123).
+
+## RTL Structure
+
 To effectively use with the TT toolchain, the project file should contain a module named `tt_[user]_[repo]` in the `src/project.v`. 
 For [example this](https://github.com/gojimmypi/ttgf-UART-FSM-TRNG-Lab/blob/a59efdc8a51dcd5f2c868acfd4993b5c532e6dc0/src/project.v#L176) `tt_um_gojimmypi_ttsky_UART_FSM_TRNG_Lab`
 which contains the standard TT interface from the [HDL templates](https://tinytapeout.com/hdl/templates/).
